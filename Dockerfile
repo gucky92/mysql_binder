@@ -12,9 +12,7 @@ RUN apt-get update -y && \
         sudo \
         curl \
         build-essential \
-        git \
-        default-mysql-client \
-        libmcrypt-dev && \
+        git && \
     curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash - && \
     DEBIAN_FRONTEND=noninteractive apt-get -y install default-mysql-server
 # RUN DEBIAN_FRONTEND=noninteractive apt-get -y install \
