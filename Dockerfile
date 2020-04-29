@@ -14,10 +14,10 @@ RUN apt-get update -y && \
         build-essential \
         git
 RUN curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
-RUN DEBIAN_FRONTEND=noninteractive apt-get -y install \
-        nodejs \
-        npm
-RUN DEBIAN_FRONTEND=noninteractive apt -y install mysql-server
+# RUN DEBIAN_FRONTEND=noninteractive apt-get -y install \
+#        nodejs \
+#        npm
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y install mysql-server
 
 
 # Create user with a home directory
@@ -53,7 +53,7 @@ RUN git clone --depth 1 https://github.com/datacharmer/test_db.git datbases/test
 RUN pip install --no-cache --upgrade pip setuptools wheel && \
     pip install --no-cache notebook && \
     pip install --upgrade --no-cache -e .
-RUN jupyter serverextension enable jupyterlab_sql --py --sys-prefix && \
-    jupyter lab build
+# RUN jupyter serverextension enable jupyterlab_sql --py --sys-prefix && \
+#    jupyter lab build
 
 USER ${USER}
