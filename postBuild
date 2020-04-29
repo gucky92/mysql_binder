@@ -1,4 +1,4 @@
 #!/bin/bash
 set -eux
 
-mysql.service start
+mysql start
