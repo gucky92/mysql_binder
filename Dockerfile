@@ -8,7 +8,6 @@ USER root
 # root user will have no/blank password
 RUN apt-get update -y && \
     apt-get upgrade -y && \
-    apt update -y && \
     apt-get -y install \
         sudo \
         curl \
@@ -18,7 +17,7 @@ RUN curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
 # RUN DEBIAN_FRONTEND=noninteractive apt-get -y install \
 #        nodejs \
 #        npm
-RUN DEBIAN_FRONTEND=noninteractive apt -y install mysql-server
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y install mysql-server-5.6
 
 
 # Create user with a home directory
