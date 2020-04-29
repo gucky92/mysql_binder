@@ -12,12 +12,13 @@ RUN apt-get update -y && \
         sudo \
         curl \
         build-essential \
-        git
+        git \
+        default-mysql-client
 RUN curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
 # RUN DEBIAN_FRONTEND=noninteractive apt-get -y install \
 #        nodejs \
 #        npm
-RUN DEBIAN_FRONTEND=noninteractive apt-get -y install mysql-server-5.6
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y install mysql-server
 
 
 # Create user with a home directory
