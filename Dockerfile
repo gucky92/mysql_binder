@@ -57,9 +57,14 @@ RUN git clone --depth 1 https://github.com/datacharmer/test_db.git datbases/test
     echo "${USER} ALL=/sbin//etc/init.d/mysql restart" >> /etc/sudoers
 
 # Install the notebook package and install jupyterlab-sql extension
-RUN pip install --no-cache --upgrade pip setuptools wheel && \
+RUN pip install --no-cache --upgrade pip && \
     pip install --no-cache notebook && \
-    pip install --upgrade --no-cache -e .
+    pip install git+https://github.com/gucky92/datajoint-python.git && \
+    pip install seaborn && \
+    pip install scikit-learn
+# RUN pip install --no-cache --upgrade pip setuptools wheel && \
+#    pip install --no-cache notebook && \
+#    pip install --upgrade --no-cache -e .
 # RUN jupyter serverextension enable jupyterlab_sql --py --sys-prefix && \
 #    jupyter lab build
 
