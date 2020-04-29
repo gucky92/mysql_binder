@@ -48,7 +48,8 @@ RUN printf "\n### Start MySQL server\n### /etc/init.d/mysql start\n" && \
     mysql -u root < add_user.sql && \
     echo "${USER} ALL=/sbin//etc/init.d/mysql start" >> /etc/sudoers && \
     echo "${USER} ALL=/sbin//etc/init.d/mysql stop" >> /etc/sudoers && \
-    echo "${USER} ALL=/sbin//etc/init.d/mysql restart" >> /etc/sudoers
+    echo "${USER} ALL=/sbin//etc/init.d/mysql restart" >> /etc/sudoers && \
+    echo "${USER} ALL=/sbin//var/run/mysqld/mysqld.sock" >> /etc/sudoers
 
 # Install the notebook package and install jupyterlab-sql extension
 RUN pip install --no-cache --upgrade pip && \
