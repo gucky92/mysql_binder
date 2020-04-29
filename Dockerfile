@@ -13,11 +13,11 @@ RUN apt-get update -y && \
         curl \
         build-essential \
         git
-RUN curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash - && \
-    DEBIAN_FRONTEND=noninteractive apt-get -y install \
+RUN curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y install \
+        mysql-server \
         nodejs \
         npm \
-        mysql-server \
         default-mysql-client
 
 
