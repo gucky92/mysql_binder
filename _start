@@ -1,7 +1,10 @@
-
 #!/bin/bash
-
-# Start MySQL server
-sudo /etc/init.d/mysql start
-
+set -eux
+PGDATA=${PGDATA:-/home/jovyan/bin/mysql}
+pg_ctl -D "$PGDATA" -l "$PGDATA/pg.log" start
 exec "$@"
+
+# # Start MySQL server
+# sudo /etc/init.d/mysql start
+#
+# exec "$@"

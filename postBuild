@@ -1,1 +1,4 @@
-/etc/init.d/mysql start
+#!/bin/bash
+set -eux
+
+mysql.service start
