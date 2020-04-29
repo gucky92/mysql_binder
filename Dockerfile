@@ -34,8 +34,8 @@ RUN adduser --disabled-password \
     --uid ${NB_UID} \
     ${NB_USER}
 
-COPY . ${HOME}
-RUN chown -R ${NB_UID} ${HOME}
+COPY add_user.sql ${HOME}/add_user.sql
+# RUN chown -R ${NB_UID} ${HOME}
 
 WORKDIR ${HOME}
 
