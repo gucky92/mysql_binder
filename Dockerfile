@@ -64,4 +64,6 @@ RUN pip install --no-cache --upgrade pip && \
 # RUN jupyter serverextension enable jupyterlab_sql --py --sys-prefix && \
 #    jupyter lab build
 
+EXPOSE 3306
+
 USER ${USER}
