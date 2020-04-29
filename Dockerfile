@@ -13,12 +13,14 @@ RUN apt-get update -y && \
         curl \
         build-essential \
         git \
-        default-mysql-client
-RUN curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+        default-mysql-client \
+        libmcrypt-dev && \
+    curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash - && \
+    DEBIAN_FRONTEND=noninteractive apt-get -y install default-mysql-server
 # RUN DEBIAN_FRONTEND=noninteractive apt-get -y install \
 #        nodejs \
 #        npm
-RUN DEBIAN_FRONTEND=noninteractive apt-get -y install mysql-server
+# RUN DEBIAN_FRONTEND=noninteractive apt-get -y install mysql-server
 
 
 # Create user with a home directory
