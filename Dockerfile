@@ -34,7 +34,7 @@ RUN adduser --disabled-password \
     --uid ${NB_UID} \
     ${NB_USER}
 
-COPY add_user.sql ${HOME}/add_user.sql
+# COPY add_user.sql ${HOME}/add_user.sql
 # RUN chown -R ${NB_UID} ${HOME}
 
 WORKDIR ${HOME}
@@ -51,7 +51,7 @@ RUN git clone --depth 1 https://github.com/datacharmer/test_db.git datbases/test
     mysql -u root < employees.sql && \
     cd ${HOME} && \
     printf "\n### Add jovyan as MySQL user\n### mysql -u root < binder/add_user.sql\n" && \
-    mysql -u root < binder/add_user.sql && \
+    mysql -u root < add_user.sql && \
     echo "${USER} ALL=/sbin//etc/init.d/mysql start" >> /etc/sudoers && \
     echo "${USER} ALL=/sbin//etc/init.d/mysql stop" >> /etc/sudoers && \
     echo "${USER} ALL=/sbin//etc/init.d/mysql restart" >> /etc/sudoers
