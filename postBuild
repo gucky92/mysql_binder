@@ -1,4 +1,5 @@
 #!/bin/bash
 set -eux
 
+DEBIAN_FRONTEND=noninteractive mysql_secure_installation
 mysql start

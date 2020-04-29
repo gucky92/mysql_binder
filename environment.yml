@@ -3,5 +3,6 @@ channels:
   - anaconda
 dependencies:
   - mysql # https://anaconda.org/anaconda/mysql
+  - mysql-connector-python
   - pip:
       - git+https://github.com/gucky92/datajoint-python
