@@ -16,7 +16,7 @@ RUN apt-get update -y && \
 RUN curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install \
         nodejs \
-        npm \
+        npm
 RUN DEBIAN_FRONTEND=noninteractive apt -y install mysql-server
 
 
