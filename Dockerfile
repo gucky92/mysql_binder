@@ -15,10 +15,9 @@ RUN apt-get update -y && \
         git
 RUN curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install \
-        mysql-server \
         nodejs \
         npm \
-        default-mysql-client
+RUN DEBIAN_FRONTEND=noninteractive apt -y install mysql-server
 
 
 # Create user with a home directory
