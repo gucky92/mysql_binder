@@ -8,6 +8,7 @@ USER root
 # root user will have no/blank password
 RUN apt-get update -y && \
     apt-get upgrade -y && \
+    apt update -y && \
     apt-get -y install \
         sudo \
         curl \
