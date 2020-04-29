@@ -43,14 +43,10 @@ ADD . ${HOME}
 
 # Download and install the MySQL example employees database
 # c.f. https://github.com/datacharmer/test_db
-RUN git clone --depth 1 https://github.com/datacharmer/test_db.git datbases/test_db && \
-    cd datbases/test_db && \
-    printf "\n### Start MySQL server\n### /etc/init.d/mysql start\n" && \
+RUN printf "\n### Start MySQL server\n### /etc/init.d/mysql start\n" && \
     /etc/init.d/mysql start && \
-    printf "\n### mysql -u root < employees.sql\n" && \
-    mysql -u root < employees.sql && \
     cd ${HOME} && \
-    printf "\n### Add jovyan as MySQL user\n### mysql -u root < binder/add_user.sql\n" && \
+    printf "\n### Add jovyan as MySQL user\n### mysql -u root < add_user.sql\n" && \
     mysql -u root < add_user.sql && \
     echo "${USER} ALL=/sbin//etc/init.d/mysql start" >> /etc/sudoers && \
     echo "${USER} ALL=/sbin//etc/init.d/mysql stop" >> /etc/sudoers && \
